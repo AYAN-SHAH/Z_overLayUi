@@ -1,7 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 const LeadDashboard = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: false,  draggable: false, });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    dragFree: false,
+    draggable: false,
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const images = [
@@ -23,7 +27,7 @@ const LeadDashboard = () => {
 
   useEffect(() => {
     if (!emblaApi) return;
-    
+
     // Sync the selected index on each slide change
     const onSelect = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
@@ -44,9 +48,9 @@ const LeadDashboard = () => {
     ));
   };
   return (
-    <div className="min-h-screen bg-gray-100 md:bg--200 flex items-center flex-col w-full relative py-2">
+    <div className="min-h-screen bg-gray-100 md:bg--200  flex items-center flex-col w-full relative py-2">
       {/* First Section */}
-      <div className="bg-gradient-to-t from-purple-400 sm:from-violet- to-violet-200 text-gray-800 pb-10 md:pb-20 pt-6 sm:pt-4   md:pt-6 px-3 md:px-6 sm:px-8 text-center w-[94%] relative md:w-[87%] lg:w-[86%] rounded-3xl h-[300px] sm:[h-340px] md:h-[440px] lg:h-[500px]">
+      <div className="bg-gradient-to-t  from-purple-400 sm:from-violet- to-violet-200 text-gray-800 pb-10 md:pb-20 pt-6 sm:pt-4   md:pt-6 px-3 md:px-6 sm:px-8 text-center w-[94%] relative md:w-[87%] lg:w-[86%] rounded-3xl h-[300px] sm:[h-340px] md:h-[440px] lg:h-[500px]">
         <h1 className="text-lg sm:text-xl md:text-3xl lg:text-[2.5rem] font-semibold leading-snug  sm:leading-tight md:leading-none">
           Convert Leads into Success
           <br />
@@ -58,12 +62,12 @@ const LeadDashboard = () => {
       </div>
 
       {/* Overlapping Dashboard Section */}
-      <div className="overflow-hidden absolute top-[calc(11%)] sm:top-[calc(9%)] md:top-[calc(12%)] lg:top-[calc(13%)] w-[86vw] sm:w-[80vw] md:w-[76vw] max-w-[1000px] mx-auto left-1/2 transform -translate-x-1/2 z-10">
+      <div className="overflow-hidden   w-[86vw] sm:w-[80vw] md:w-[76vw] max-w-[1000px] mx-auto left-1/2 -mt-[210px] -mb-20 sm:-mt-[220px] sm:-mb-36 md:-mt-[305px] md:-mb-40 lg:-mt-[338px] lg:-mb-[175px] z-10">
         <div
           className="overflow-hidden bg-white/50 shadow-lg rounded-3xl p-1 sm:p-2 md:p-3 lg:p-4 w-full h-[280px] sm:h-[330px] md:h-[410px] lg:h-[500px] embla"
           ref={emblaRef}
           style={{
-            pointerEvents: 'none', // Prevent any pointer interactions
+            pointerEvents: "none", // Prevent any pointer interactions
           }}
         >
           <div className="embla__container flex h-full">
@@ -71,9 +75,7 @@ const LeadDashboard = () => {
               <div
                 key={index}
                 className={`embla__slide w-full h-full flex-shrink-0 transition-opacity duration-1000 ease-in-out ${
-                  index === selectedIndex
-                    ? "opacity-100"
-                    : "opacity-0"
+                  index === selectedIndex ? "opacity-100" : "opacity-0"
                 }`}
               >
                 <img
@@ -91,7 +93,7 @@ const LeadDashboard = () => {
         </div>
       </div>
       {/* Second Section */}
-      <div className="bg-purple-900 text-white pt-24 sm:pt-28 pb-10 mt-8 sm:mt-16 lg:pt-40 md:mt-24 lg:mt-24 px-4 sm:px-8 lg:px-12 text-center w-full flex flex-col justify-center items-center">
+      <div className="bg-purple-900 text-white pt-24 sm:pt-28 pb-10  sm:mt-16 lg:pt-36 md:mt-24  px-4 sm:px-8 lg:px-12 text-center w-full flex flex-col justify-center items-center">
         <h2 className="text-lg sm:text-xl md:text-2xl font-bold lg:text-3xl">
           Less Complexity, More Productivity
         </h2>
@@ -134,7 +136,7 @@ const LeadDashboard = () => {
             },
             {
               image: "https://via.placeholder.com/100",
-              title: "Manage Tasks Seamlessly", 
+              title: "Manage Tasks Seamlessly",
               description:
                 "Streamline task organization for productivity and timely completion.",
             },
@@ -148,7 +150,9 @@ const LeadDashboard = () => {
                 alt={card.title}
                 className="w-16 h-16  mx-auto mb-[3px] md:mb-2"
               />
-              <h3 className="text-xs  sm:text-base md:text-lg lg:text-xl font-semibold px-1 leading-none">{card.title}</h3>
+              <h3 className="text-xs  sm:text-base md:text-lg lg:text-xl font-semibold px-1 leading-none">
+                {card.title}
+              </h3>
               <p className="text-sm sm:text-sm md:text-base  lg:px-0  md:mt-0 sm:mt-[0px] text-center hidden md:block sm:px-6 md:px-12 leading-none lg:text-base">
                 {card.description}
               </p>
